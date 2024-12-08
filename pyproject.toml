@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pg_asynq"
-version = "0.1.0"
+version = "0.2.0"
 description = "Barebones async-powered message queue on python with psycopg (v3)"
 authors = ["Amith K K <amithkumaran@gmail.com>"]
 readme = "README.md"

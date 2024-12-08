@@ -1,2 +1,2 @@
-from AsynqManager import AsynqManager
-from helpers.AsynQMessage import AsynqMessage, AsynqJSONMessage
+from pg_asynq.AsynqManager import AsynqManager
+from pg_asynq.AsynqMessage import AsynqMessage, AsynqJSONMessage

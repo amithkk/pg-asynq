@@ -7,7 +7,7 @@ from psycopg import sql
 from psycopg.rows import dict_row
 from psycopg_pool import AsyncConnectionPool
 
-from helpers.AsynQMessage import AsynqMessage
+from pg_asynq.AsynqMessage import AsynqMessage
 
 class AsynqManager:
     delete_on_consume = False
@@ -62,7 +62,7 @@ class AsynqManager:
                     cur = conn.cursor(row_factory=dict_row)
                     result = await cur.execute(
                         sql.SQL(
-                            "SELECT * FROM {table_name} WHERE queue_name = {queue_name} ORDER_BY id ASC LIMIT 1 FOR UPDATE SKIP LOCKED").format(
+                            "SELECT * FROM {table_name} WHERE queue_name = {queue_name} ORDER BY id ASC LIMIT 1 FOR UPDATE SKIP LOCKED").format(
                             table_name=sql.Identifier(self.table_name), queue_name=sql.Literal(self.queue_name)
                         )
                     )
